@@ -39,7 +39,10 @@ public class InterfaceUsuario {
                     double precoCarro = scanner.nextDouble();
                     System.out.print("Digite o ano do carro vendido: ");
                     int anoCarro = getAnoFromUser();
-                    carrosVendidos.add(new Carro(idFuncionarioVenda, nomeCarro, nomeCarro, anoCarro, precoCarro));
+                    System.out.print("Digite o modelo do carro vendido: ");
+                    scanner.nextLine(); 
+                    String modelo = scanner.nextLine();
+                    carrosVendidos.add(new Carro(idFuncionarioVenda, nomeCarro, modelo, anoCarro, precoCarro));
                     AcessoDados.saveCarros(carrosVendidos, "file/carros.csv");
                     System.out.println("Venda registrada com sucesso.");
                     break;
@@ -93,7 +96,7 @@ public class InterfaceUsuario {
         }
     }
     public static int getAnoFromUser() {
-		System.out.println("Entre com o ano carro:");
+		System.out.println();
 		try {
 			return getInterioPositivoFromUser();
 		}catch (InteiroPositivoFormatException e) {
